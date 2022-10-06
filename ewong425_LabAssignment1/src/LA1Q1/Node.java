@@ -3,9 +3,9 @@ public class Node<T> {
     private T element;
     private Node<T> next;
     public Node() {}
-    public Node(T t, Node<T> n) {
-        element = t;
-        next = n;
+    public Node(T element, Node<T> next) {
+        this.element = element;
+        this.next = next;
     }
     public Node<T> getNext() {
         return next;
