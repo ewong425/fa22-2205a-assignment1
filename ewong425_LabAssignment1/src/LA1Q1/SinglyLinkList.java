@@ -22,7 +22,7 @@ public class SinglyLinkList<T> {
         pointer = head;
         for(int i=0; i<size; i++) {
             pointer = pointer.getNext();
-            s = "" + pointer.getElement();
+            s = pointer.getElement() + " ";
         }
         return s;
     }
