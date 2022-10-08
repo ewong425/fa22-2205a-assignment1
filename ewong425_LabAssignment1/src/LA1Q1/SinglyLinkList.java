@@ -70,5 +70,30 @@ public class SinglyLinkList<T> {
     public void pushAtHead(T element) {
         addFirst(element);
     }
+    public T popFromHead() {
+        return removeFirst();
+    }
+    public void pushAtTail(T element) {
+        addLast(element);
+    }
+    public T popFromTail() {
+        return removeLast();
+    }
+    public void enqueueAtTail(T element) {
+        addLast(element);
+    }
+    public T dequeueAtHead() {
+        return removeFirst();
+    }
+    public int searchStack(T element) {
+        Node<T> pointer = new Node<>();
+        pointer = head;
+        int count = 0;
+        while(pointer.getElement() != element) {
+            pointer = head.getNext();
+            count++;
+        }
+        return count;
+    }
 }
 
