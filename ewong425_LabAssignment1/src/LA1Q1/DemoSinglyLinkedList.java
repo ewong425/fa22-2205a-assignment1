@@ -43,34 +43,37 @@ public class DemoSinglyLinkedList {
         //Stack search section, while the input of the user is 'y'
         System.out.println("\nLet's search the stack");
         System.out.println("The current stack is: " + numList.toString());
-        while(cont == 'y') {
+        do {
             //take in the value that the user wishes to be found
             try {
                 System.out.print("Enter the value you are searching for: ");
                 num = input.nextInt();
                 System.out.println("The value " + num + " is found in location " + numList.searchStack(num) + " from the top of the stack.");
             } catch(IndexOutOfBoundsException e) { //catch any index out of bounds
-                System.out.println("Index not found! Do you wish to continue? (enter 'y' for yes and any other key to exit.");
+                System.out.println("Index not found!");
             }
-            //call searchStack method with their input
+            System.out.println("\nDo you wish to continue? (enter y to continue or any other key to exit.)");
             cont = input.next().charAt(0); //ask if they would like to continue searching
-        }
+        } while (cont == 'y');
         footer(1);
     }
     public static void stackDemo(SinglyLinkList linkedList) {
         int num = 0;
         SinglyLinkList<Integer> numList;
         numList = linkedList;
-        while(num != 1 || num != 2) {
-                try {
-                    System.out.println("Which end of the Linked List would you like to use as the top of the Stack?");
-                    System.out.println("Enter 1 for the Head or 2 for the Tail\n");
-                    num = input.nextInt();
+        System.out.println("Which end of the Linked List would you like to use as the top of the Stack?");
+        do {
+            try {
+                System.out.println("Enter 1 for the Head or 2 for the Tail\n");
+                num = input.nextInt();
+                if(num == 1 || num == 2) {
                     break;
-                } catch (InputMismatchException e) {
-                    System.out.println("Incorrect Input, please enter 1 for the head or 2 for the tail");
                 }
-        }
+            } catch (InputMismatchException e) {
+                System.out.print("Invalid Input! ");
+            }
+            input.next();
+        } while(num != 1 || num != 2);
         if(num == 1) {
             System.out.println("Stack top: Head of the linked list.\n");
             System.out.println("Let's pop all the elements from the stack in the sequence: ");
