@@ -59,6 +59,8 @@ public class DemoSinglyLinkedList {
     }
     public void stackDemo(SinglyLinkList linkedList) {
         int num = 0;
+        SinglyLinkList<Integer> numList;
+        numList = linkedList;
         while(num != 1 || num != 2) {
             try {
                 System.out.println("Which end of the Linked List would you like to use as the top of the Stack?");
@@ -67,6 +69,34 @@ public class DemoSinglyLinkedList {
             } catch (InputMismatchException e) {
                 System.out.println("Incorrect Input, please enter 1 for the head or 2 for the tail");
             }
+        }
+        if(num == 1) {
+            System.out.println("Stack top: Head of the linked list.");
+            System.out.println("Let's pop all the elements from the stack in the sequence: ");
+            System.out.print("The current stack: " + numList.toString() + "\n");
+            while (!numList.isEmpty()) {
+                System.out.println(numList.popFromHead() + " has been popped! The revised stack: " + numList.toString());
+            }
+            System.out.println("Lets push 39 and -58 in the stack");
+            System.out.println("The currrent stack: " + numList.toString());
+            numList.addFirst(39);
+            System.out.println("After 39 is pushed, the revised stack is: " + numList.toString());
+            numList.addFirst(-58);
+            System.out.println("After -58 is pushed, the revised stack is: " + numList.toString());
+        }
+        if(num == 2) {
+            System.out.println("Stack top: Tail of the linked list.");
+            System.out.println("Let's pop the first three elements from the stack in sequence");
+            System.out.print("The current stack: " + numList.toString() + "\n");
+            while(!numList.isEmpty()) {
+                System.out.println(numList.popFromTail() + " has been popped! The revised stack: " + numList.toString());
+            }
+            System.out.println("Lets push 39 and -58 in the stack");
+            System.out.println("Current stack: " + numList.toString());
+            numList.addLast(39);
+            System.out.println("After 39 is pushed, the revised stack: " + numList.toString());
+            numList.addLast(-58);
+            System.out.println("After -58 is pushed, the revised stack: " + numList.toString());
         }
     }
     public void queueDemo(SinglyLinkList linkedList) {
