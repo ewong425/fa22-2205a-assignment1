@@ -16,6 +16,7 @@ public class SinglyLinkList<T> {
     public Boolean isEmpty() {
         return size == 0;
     }
+    @Override
     public String toString() {
         Node<T> pointer = new Node<>();
         String s = "";
