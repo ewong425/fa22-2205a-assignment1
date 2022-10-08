@@ -1,8 +1,8 @@
 package LA1Q1;
 public class SinglyLinkList<T> {
     //initialize variables
-    private Node<T> head = null;
-    private Node<T> tail = null;
+    private Node<T> head;
+    private Node<T> tail;
     private int size;
     //constructor taking in a head and a tail node
     public SinglyLinkList(Node<T> head, Node<T> tail, int size) {
@@ -22,12 +22,15 @@ public class SinglyLinkList<T> {
     //toString method which overides the java object
     @Override
     public String toString() {
+        if(isEmpty()) {
+            return "[]";
+        }
         Node<T> pointer = new Node<>();
         String s = "";
         pointer = head;
         for(int i=0; i<size; i++) {
+            s += pointer.getElement() + ", ";
             pointer = pointer.getNext();
-            s = pointer.getElement() + " ";
         }
         return s;
     }
@@ -102,14 +105,23 @@ public class SinglyLinkList<T> {
     }
     //search the list for a desired element and return the index or node that it is at
     public int searchStack(T element) {
-        Node<T> pointer = new Node<>();
+        Node<T> pointer;
         pointer = head;
         int count = 0;
-        while(pointer.getElement() != element) {
-            pointer = head.getNext();
-            count++;
+        for(int i=0; i<size; i++) {
+            if(pointer.getElement().equals(element)){
+                count = i;
+            }
+            if(pointer.getNext() != null) {
+                pointer = pointer.getNext();
+            }
         }
-        return count;
+        if(count == 0) {
+            System.out.println("Value not found");
+            return 0;
+        } else {
+            return count;
+        }
     }
 }
 
