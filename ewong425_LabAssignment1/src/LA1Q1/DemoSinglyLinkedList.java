@@ -58,66 +58,77 @@ public class DemoSinglyLinkedList {
         footer(1);
     }
     public static void stackDemo(SinglyLinkList linkedList) {
+        //intialize variables
         int num = 0;
         SinglyLinkList<Integer> numList;
         numList = linkedList;
+        //ask user which side of the Linked list do they wish to be the top of the stack
         System.out.println("Which end of the Linked List would you like to use as the top of the Stack?");
         do {
             try {
+                //make sure that they are inputting either 1 or 2
                 System.out.println("Enter 1 for the Head or 2 for the Tail\n");
                 num = input.nextInt();
                 if(num == 1 || num == 2) {
                     break;
                 }
+                //catch any mismatched inputs
             } catch (InputMismatchException e) {
                 System.out.print("Invalid Input! ");
             }
+            //clear scanner
             input.next();
         } while(num != 1 || num != 2);
+        //num == 1 means head is the top of the stack
         if(num == 1) {
             System.out.println("Stack top: Head of the linked list.\n");
             System.out.println("Let's pop all the elements from the stack in the sequence: ");
+            //pop all elements in the numList
             System.out.print("The current stack: " + numList.toString() + "\n");
             while (!numList.isEmpty()) {
                 System.out.println(numList.popFromHead() + " has been popped! The revised stack: " + numList.toString());
             }
+            //pushing 39 and -58 into the stack
             System.out.println("\nLets push 39 and -58 in the stack");
-            System.out.println("The currrent stack: " + numList.toString());
-            numList.pushAtHead(39);
+            System.out.println("The currrent stack: " + numList.toString()); //shows current stack
+            numList.pushAtHead(39); //pushes at head 39
             System.out.println("After 39 is pushed, the revised stack is: " + numList.toString());
-            numList.pushAtHead(-58);
+            numList.pushAtHead(-58); //pushes at head -58
             System.out.println("After -58 is pushed, the revised stack is: " + numList.toString());
         }
+        //num==2 tail is the top of the stack
         if(num == 2) {
             System.out.println("Stack top: Tail of the linked list.");
             System.out.println("\nLet's pop the first three elements from the stack in sequence");
             System.out.print("The current stack: " + numList.toString() + "\n");
-            for(int i=0; i<3; i++) {
+            for(int i=0; i<3; i++) { //pop three elements from the list
                 System.out.println(numList.popFromTail() + " has been popped! The revised stack: " + numList.toString());
             }
+            //push 39 and -58 into the stack
             System.out.println("\nLets push 39 and -58 in the stack");
             System.out.println("Current stack: " + numList.toString());
-            numList.pushAtTail(39);
+            numList.pushAtTail(39); //push at the tail 39
             System.out.println("After 39 is pushed, the revised stack: " + numList.toString());
-            numList.pushAtTail(-58);
+            numList.pushAtTail(-58); //push at tail -58
             System.out.println("After -58 is pushed, the revised stack: " + numList.toString());
         }
     }
     public static void queueDemo(SinglyLinkList linkedList) {
+        //initialize variables
         SinglyLinkList<String> nameList;
         nameList = linkedList;
         System.out.println("Note: the Head is the front of the queue and the Tail is the end of the queue \n");
         System.out.println("Enqueue Joelle and Lukas in the queue in sequence... \n");
-
+        //printing the current string list
         System.out.println("The current queue is: " + nameList.toString());
-        nameList.enqueueAtTail("Joelle");
+        nameList.enqueueAtTail("Joelle"); //adding Joelle to the end of the queue with enqueue
         System.out.println("\nAfter Joeele is enqueued, the revised Queue: " + nameList.toString());
-        nameList.enqueueAtTail("Lukas");
+        nameList.enqueueAtTail("Lukas"); //adding Lukas to the end of the queue with enqueue
         System.out.println("After Lukas is enqueued, the revised Queue: " + nameList.toString());
-
+        //removing three people from the queue using dequeue at head
         System.out.println("\nLet's dequeue the first three elements from the queue in sequence... \n");
         System.out.println("The current queue is: " + nameList.toString());
-        for(int i=0; i<2; i++) {
+        for(int i=0; i<2; i++) { //three names are dequeued from the list
             System.out.println(nameList.dequeueAtHead() + " has been dequeued The revised queue: " + nameList.toString());
         }
     }
