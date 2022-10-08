@@ -70,7 +70,7 @@ public class DemoSinglyLinkedList {
         }
     }
     public void queueDemo(SinglyLinkList linkedList) {
-        //comment
+        //comment 2
     }
     public static void header(int n) {
         System.out.println("Lab Assignment: " + n);
