@@ -15,7 +15,7 @@ public class Node<T> {
     }
     //returns the element at a node
     public T getElement() {
-        return element;
+        return element; //return the element of the nodes
     }
     //sets the next node, (where the pointer points to)
     public void setNext(Node<T> n) {

@@ -20,18 +20,22 @@ public class DemoSinglyLinkedList {
         System.out.println("The given String array: " + strList);
         //create a Linked List for the integers and store each integer value in them from the ArrayList
         SinglyLinkList<Integer> numList = new SinglyLinkList<>();
+        //add the first three elements from the integer List to the head of the linked list
         for(int i=0; i<intList.size()-2; i++) {
             numList.addFirst(intList.get(i));
         }
+        //add the last 2 elements from the integer List to the tail of the linked list
         for(int i=intList.size()-1; i>2; i--) {
             numList.addLast(intList.get(i));
         }
         System.out.println("Your Integer list: " + numList.toString()); //return the Integer Linked List as a string
         //create a linked list for the Strings and store each string value in them from the ArrayList
         SinglyLinkList<String> nameList = new SinglyLinkList<>();
+        //add the first three elements from the name arrayList to the head linked list
         for(int i=0; i<strList.size()-2; i++) {
             nameList.addFirst(strList.get(i));
         }
+        //add the last two elements from the name arrayList to the tail of the list
         for(int i=strList.size()-1; i>2; i--) {
             nameList.addLast(strList.get(i));
         }
@@ -86,7 +90,7 @@ public class DemoSinglyLinkedList {
             System.out.println("Stack top: Head of the linked list.\n");
             System.out.println("Let's pop all the elements from the stack in the sequence: ");
             //pop all elements in the numList
-            System.out.print("The current stack: " + numList.toString() + "\n");
+            System.out.print("The current stack: " + numList.toString() + "\n\n");
             while (!numList.isEmpty()) {
                 System.out.println(numList.popFromHead() + " has been popped! The revised stack: " + numList.toString());
             }

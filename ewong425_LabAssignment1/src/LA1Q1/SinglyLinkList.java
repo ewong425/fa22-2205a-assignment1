@@ -75,6 +75,9 @@ public class SinglyLinkList<T> {
     }
     //remove the tail node from the list
     public T removeLast() {
+        if(isEmpty()) { //cannot remove a node when no node exists
+            return null;
+        }
         Node<T> pointer = new Node<>(); //pointer node
         pointer = head; //set the pointer = to the head node
         T answer = tail.getElement(); //save the element of the tail node to return
@@ -117,7 +120,7 @@ public class SinglyLinkList<T> {
         int count = -1;
         for(int i=0; i<size; i++) {
             if(pointer.getElement().equals(element)){
-                count = i;
+                count = i+1;
             }
             if(pointer.getNext() != null) {
                 pointer = pointer.getNext();
