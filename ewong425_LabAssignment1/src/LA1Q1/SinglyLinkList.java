@@ -28,12 +28,18 @@ public class SinglyLinkList<T> {
         }
         Node<T> pointer = new Node<>(); //create a pointer node which iterates through each node
         String s = ""; //create an empty string
+        String formatted = s;
         pointer = head; //set the pointer = to the head node
         for(int i=0; i<size; i++) { //loop through the entire list and set the pointer = to each element and add it to the string
-            s += pointer.getElement() + ", ";
+            if (i == size) {
+                s+= pointer.getElement();
+            }
+            s += pointer.getElement() + ",";
             pointer = pointer.getNext();
+
         }
-        return s; //return the string
+        formatted = String.format("[%s]",s);
+        return formatted; //return the string
     }
     //add an element at the head of the list
     public void addFirst(T element) {
@@ -108,7 +114,7 @@ public class SinglyLinkList<T> {
     public int searchStack(T element) {
         Node<T> pointer;
         pointer = head;
-        int count = 0;
+        int count = -1;
         for(int i=0; i<size; i++) {
             if(pointer.getElement().equals(element)){
                 count = i;
@@ -117,10 +123,11 @@ public class SinglyLinkList<T> {
                 pointer = pointer.getNext();
             }
         }
-        if(count == 0) {
+        if(count == -1) {
             System.out.println("Value not found");
-            return 0;
+            return -1;
         } else {
+            System.out.println("The value " + element + " is found in the location " + count + " from the top of the stack.");
             return count;
         }
     }

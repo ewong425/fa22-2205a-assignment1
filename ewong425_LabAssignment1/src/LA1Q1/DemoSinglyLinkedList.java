@@ -20,19 +20,21 @@ public class DemoSinglyLinkedList {
         System.out.println("The given String array: " + strList);
         //create a Linked List for the integers and store each integer value in them from the ArrayList
         SinglyLinkList<Integer> numList = new SinglyLinkList<>();
-        numList.addFirst(intList.get(0));
-        numList.addFirst(intList.get(1));
-        numList.addFirst(intList.get(2));
-        numList.addLast(intList.get(4));
-        numList.addLast(intList.get(3));
+        for(int i=0; i<intList.size()-2; i++) {
+            numList.addFirst(intList.get(i));
+        }
+        for(int i=intList.size()-1; i>2; i--) {
+            numList.addLast(intList.get(i));
+        }
         System.out.println("Your Integer list: " + numList.toString()); //return the Integer Linked List as a string
         //create a linked list for the Strings and store each string value in them from the ArrayList
         SinglyLinkList<String> nameList = new SinglyLinkList<>();
-        nameList.addFirst(strList.get(0));
-        nameList.addFirst(strList.get(1));
-        nameList.addFirst(strList.get(2));
-        nameList.addLast(strList.get(4));
-        nameList.addLast(strList.get(3));
+        for(int i=0; i<strList.size()-2; i++) {
+            nameList.addFirst(strList.get(i));
+        }
+        for(int i=strList.size()-1; i>2; i--) {
+            nameList.addLast(strList.get(i));
+        }
         System.out.println("Your String list: " + nameList.toString() + "\n"); //return the String Linked List as a string
         //calling stackDemo to realize Linked List as a stack
         System.out.println("Stack demo with the Integer linked list..");
@@ -48,7 +50,7 @@ public class DemoSinglyLinkedList {
             try {
                 System.out.print("Enter the value you are searching for: ");
                 num = input.nextInt();
-                System.out.println("The value " + num + " is found in location " + numList.searchStack(num) + " from the top of the stack.");
+                numList.searchStack(num);
             } catch(IndexOutOfBoundsException e) { //catch any index out of bounds
                 System.out.println("Index not found!");
             }
